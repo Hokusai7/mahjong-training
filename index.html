@@ -37,11 +37,74 @@
     .finish{text-align:center;padding:20px 0 10px}.finish .big{font:700 58px Georgia;color:var(--green);margin:8px}.restart{border:2px solid var(--green);background:transparent;color:var(--green);font-weight:800;padding:12px 24px;border-radius:999px;cursor:pointer}.share-x-btn{border:0;border-radius:999px;background:#111;color:#fff;font-weight:800;padding:12px 20px;margin:0 5px;cursor:pointer}.share-x-btn:hover{background:#333}
     @media(max-width:520px){body{padding:0;background:var(--paper)}.app{min-height:100vh;border-radius:0;border:0;box-shadow:none}header{padding:17px 12px}main{padding:19px 6px}.action-row{grid-template-columns:auto 1fr auto;gap:4px;margin:8px 0}.timer-btn{padding:7px 8px;font-size:11px}.action-buttons{gap:3px}.top-restart-btn{padding:6px 7px;font-size:10px}.end-btn{padding:5px 6px;font-size:10px}.hand-info{gap:3px;font-size:11px}.problem-stats{gap:4px}.hand-info .pill{padding:4px 6px}.hand-info .winds{gap:3px}.hand-info .review-btn{padding:6px 6px;font-size:10px}.hand{gap:2px}.tile{font-size:clamp(17px,5.8vw,30px);box-shadow:0 3px 5px #20392d24}.result{margin:0 2px}.sub{display:none}dialog{padding:16px}#summaryDialog{padding:14px}.summary-list{max-height:62vh}.summary-actions{grid-template-columns:1fr}.glossary dl{grid-template-columns:1fr}.glossary dt{border-bottom:0;padding-bottom:0}.glossary dd{padding-top:2px}}
     @media(prefers-reduced-motion:reduce){body,.app,.score small{transition:none}.tile.correct,.success-ring,.rainbow-ring,.milestone-sparkle,.firework-burst::after,.firework-spark,.wrong-mark,.score small.streak-pop{animation-duration:.01ms}}
+
+    /* 背景テーマ：ゲーム内は常に濃い文字が読める明度の配色を使用 */
+    .theme-toolbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 18px;padding:11px 17px;background:var(--theme-toolbar,#fffaf0);border-bottom:1px solid var(--line);font-size:13px;color:var(--ink)}
+    .theme-toolbar label{display:inline-flex;gap:7px;align-items:center;font-weight:750;white-space:nowrap}
+    .theme-toolbar select{max-width:145px;font:inherit;font-weight:700;border:1px solid #83958a;border-radius:9px;color:#17332b;background:#fff;padding:7px 26px 7px 9px;cursor:pointer}
+    .theme-toolbar select:focus-visible{outline:3px solid #bd9335;outline-offset:2px}
+    body[data-outside="forest"]{background:radial-gradient(circle at 20% 0,#2c6d57 0,#123d32 46%,#09251e 100%)}
+    body[data-outside="white"]{background:#f5f5f5}
+    body[data-outside="blue"]{background:linear-gradient(135deg,#264e78,#101f3b)}
+    body[data-outside="pink"]{background:linear-gradient(135deg,#f3dce6,#d1b3ca)}
+    body[data-outside="black"]{background:#171c25}
+    body[data-inside="cream"]{--paper:#f5f0e5;--theme-header:#fffaf0;--theme-toolbar:#fffaf0;--theme-rule:#e9e3d7;--theme-pill:#e7e0d3;--theme-line:#d8cfbe}
+    body[data-inside="white"]{--paper:#fff;--theme-header:#f4f6f5;--theme-toolbar:#f4f6f5;--theme-rule:#ecf0ed;--theme-pill:#e5ebe7;--theme-line:#cdd5cf}
+    body[data-inside="blue"]{--paper:#eaf3fc;--theme-header:#dbe9f8;--theme-toolbar:#e3effb;--theme-rule:#d9e8f5;--theme-pill:#d6e4f1;--theme-line:#b7cce0}
+    body[data-inside="pink"]{--paper:#fff0f3;--theme-header:#fae1e9;--theme-toolbar:#fce9ef;--theme-rule:#f4dce4;--theme-pill:#f1d7df;--theme-line:#dcbac5}
+    body[data-inside="gray"]{--paper:#e8ebef;--theme-header:#d9e0e7;--theme-toolbar:#e1e6ec;--theme-rule:#d5dce3;--theme-pill:#ccd6df;--theme-line:#b3bdc9}
+    body[data-inside] .app{background:var(--paper);color:#17332b;border-color:#9aa59b55}
+    body[data-inside] header{background:var(--theme-header);border-color:var(--theme-line)}
+    body[data-inside] .theme-toolbar{border-color:var(--theme-line)}
+    body[data-inside] .rule{background:var(--theme-rule);color:#354940}
+    body[data-inside] .pill{background:var(--theme-pill);border-color:var(--theme-line);color:#233d34}
+    body[data-inside] .hand-info,body[data-inside] .sub,body[data-inside] .image-credit{color:#45594d}
+    body[data-inside] .score small{color:#45594d}
+    body[data-inside] .tile:has(img),body[data-inside] .review-tile:has(img){background:transparent}
+    @media(max-width:520px){.theme-toolbar{gap:7px;padding:9px 7px;font-size:12px}.theme-toolbar label{gap:5px}.theme-toolbar select{max-width:115px;padding:6px 16px 6px 6px}body[data-outside]{background:var(--paper)}}
+
+    /* ゲーム内ダークテーマ：文字・牌・操作部のコントラストを確保 */
+    body[data-inside="black"]{--paper:#171c24;--theme-header:#202733;--theme-toolbar:#202733;--theme-rule:#262f3b;--theme-pill:#313c49;--theme-line:#465363;--ink:#f0f3f5;--green:#a9e3c0;--green2:#335849;--line:#465363}
+    body[data-inside="black"] .app{background:var(--paper);color:#f0f3f5;border-color:#63708388}
+    body[data-inside="black"] header,body[data-inside="black"] .theme-toolbar{background:var(--theme-header);color:#f0f3f5;border-color:var(--theme-line)}
+    body[data-inside="black"] .theme-toolbar select{background:#f6f7f7;color:#1a3028;border-color:#aab7bd}
+    body[data-inside="black"] h1,body[data-inside="black"] .score,body[data-inside="black"] .score small,body[data-inside="black"] .sub,body[data-inside="black"] .hand-info,body[data-inside="black"] .image-credit{color:#e0e7eb}
+    body[data-inside="black"] .prompt,body[data-inside="black"] .prompt strong{color:#f7f9fb}
+    body[data-inside="black"] .progress{background:#3c4854}
+    body[data-inside="black"] .pill{background:var(--theme-pill);border-color:#6c7c8c;color:#eaf0f4}
+    body[data-inside="black"] .pill strong{color:#fff}
+    body[data-inside="black"] .timer-btn,body[data-inside="black"] .top-restart-btn,body[data-inside="black"] .review-btn,body[data-inside="black"] .restart{background:#303c49;color:#f2f6f8;border-color:#8b9daa}
+    body[data-inside="black"] .timer-btn.paused{background:#594837;color:#fff0db}
+    body[data-inside="black"] .end-btn{background:#4c3234;border-color:#cd8c91;color:#ffe5e5}
+    body[data-inside="black"] .next,body[data-inside="black"] .resume-btn,body[data-inside="black"] .close-dialog{background:#387054;color:#fff}
+    body[data-inside="black"] .result{background:#303139;border-color:#936b6b;color:#f5f0ef}
+    body[data-inside="black"] .result h2,body[data-inside="black"] .wrong-count{color:#ffaaa3}
+    body[data-inside="black"] .correct-count{color:#9be9af}
+    body[data-inside="black"] .rule{background:var(--theme-rule);color:#dce6ea}
+    body[data-inside="black"] .rule b,body[data-inside="black"] .rules-details>summary,body[data-inside="black"] .glossary summary,body[data-inside="black"] .glossary dt{color:#b5edce}
+    body[data-inside="black"] .glossary dd,body[data-inside="black"] .reading{color:#d0d8de}
+    body[data-inside="black"] .glossary,body[data-inside="black"] .glossary dt,body[data-inside="black"] .glossary dd{border-color:#566372}
+    body[data-inside="black"] .image-credit a{color:#b5edce}
+    body[data-inside="black"] dialog{background:#222b35;color:#f2f6f8}
+    body[data-inside="black"] .review-nav,body[data-inside="black"] .summary-item,body[data-inside="black"] .start-over-btn{background:#303d4a;color:#f4f7f8;border-color:#748597}
+    body[data-inside="black"] .dialog-answer,body[data-inside="black"] .summary-title,body[data-inside="black"] .finish .big{color:#b5edce}
+    body[data-inside="black"] .summary-stats{color:#d1dbe2}
+    body[data-inside="black"] .summary-body{border-color:#637383}
+    body[data-inside="black"] .status-ok{color:#9be9af}
+    body[data-inside="black"] .status-ng{color:#ffaaa3}
+    body[data-inside="black"] .retry-wrong-btn{background:#4b3035;color:#ffddd9;border-color:#bc8185}
+    body[data-inside="black"] .review-tile:not(:has(img)){background:#fff;color:#17332b}
+    body[data-inside="black"] .tile:not(:has(img)){background:#fff;color:#17332b}
+    body[data-inside="black"] .tile:has(img),body[data-inside="black"] .review-tile:has(img){background:transparent}
   </style>
 </head>
 <body>
 <div class="app">
   <header><div><h1>孤立牌トレーニング</h1><div class="sub">規則に沿って、最初に切る牌を選ぼう</div></div><div class="score"><span id="score">0</span> 正解<small id="streak" aria-label="連続正解0"></small></div></header>
+  <div class="theme-toolbar" aria-label="背景色設定">
+    <label for="insideTheme">ゲーム内の背景 <select id="insideTheme" aria-label="ゲーム内の背景色"><option value="cream">生成り（標準）</option><option value="white">白</option><option value="blue">淡い青</option><option value="pink">淡いピンク</option><option value="gray">ライトグレー</option><option value="black">黒</option></select></label>
+    <label for="outsideTheme">ゲーム外の背景 <select id="outsideTheme" aria-label="ゲーム外の背景色"><option value="forest">深緑（標準）</option><option value="white">白</option><option value="blue">濃い青</option><option value="pink">淡いピンク</option><option value="black">黒</option></select></label>
+  </div>
   <main id="game">
     <div class="progress"><i id="bar"></i></div>
     <div class="action-row"><button class="timer-btn" id="timerBtn">00:00</button><div class="prompt"><strong>最も切るべき孤立牌をクリック</strong></div><div class="action-buttons"><button class="top-restart-btn" id="topRestartBtn">最初から</button><button class="end-btn" id="endBtn">ここで終了</button></div></div>
@@ -147,6 +210,17 @@ function restartAllQuestions(){if($('summaryDialog').open)$('summaryDialog').clo
 function resultPostText(){const tags='#孤立牌トレーニング',gameUrl='https://hokusai7.github.io/mahjong-training/',time=`タイム ${timeText(elapsed())}`,footer=`${time}\n${gameUrl}\n${tags}`;if(isRetryRound){const lead=retryOriginWasFull100?'孤立牌トレーニング100問完走後、':'孤立牌トレーニングで';return score===order.length?`${lead}間違えた${order.length}問をやり直して全問正解！🀄\n${footer}`:`${lead}間違えた問題をやり直し！🀄\n${order.length}問中${score}問正解（間違いあり ${mistakes}問）\n${footer}`}return score===order.length?`孤立牌トレーニング100問、全問一発正解！🀄\n${footer}`:`孤立牌トレーニング100問に挑戦！🀄\n${order.length}問中${score}問正解（間違いあり ${mistakes}問）\n${footer}`}
 function shareResultToX(){window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(resultPostText())}`,'_blank','noopener,noreferrer')}
 function finish(){pauseTimer();clearInterval(timerLoop);const finalTime=timeText(elapsed()),guide=$('game').querySelector('.image-credit').outerHTML+$('game').querySelector('.rule').outerHTML,hasWrong=reviewHistory.some(x=>!x.firstTry),canShare=(!isRetryRound&&order.length===100)||(isRetryRound&&retryOriginWasFull100&&score===order.length);$('bar').style.width='100%';$('game').classList.remove('game-paused');$('game').innerHTML=`<div class="finish"><div>全${order.length}問終了</div><div class="big">${score} / ${order.length}</div><p>経過時間 ${finalTime}</p><p>${score===order.length?'全問一発正解！ 優先順位は完璧です。':score>=order.length*.7?'かなり身についています。もう一度挑戦して定着させよう。':'優先順位を見ながら、もう一度挑戦してみよう。'}</p>${canShare?'<button class="share-x-btn" onclick="shareResultToX()">Xで結果をポスト</button>':''}${reviewHistory.length?'<button class="review-btn" onclick="openSummary()">全問題の正誤と解説を見る</button>':''}${hasWrong?'<button class="retry-wrong-btn" onclick="retryWrongQuestions()">間違えた問題をやり直す</button>':''}<br><br><button class="restart" onclick="restartAllQuestions()">もう一度挑戦</button></div>${guide}`}
+
+// 背景選択はゲームの再開・リスタート後も保持する。
+(function initBackgroundThemes(){
+  const options={inside:['cream','white','blue','pink','gray','black'],outside:['forest','white','blue','pink','black']};
+  for(const [type,id,fallback] of [['inside','insideTheme','cream'],['outside','outsideTheme','forest']]){
+    const select=document.getElementById(id);let saved=fallback;
+    try{const value=localStorage.getItem('isolated-tile-theme-'+type);if(options[type].includes(value))saved=value}catch(e){}
+    select.value=saved;document.body.dataset[type]=saved;
+    select.addEventListener('change',()=>{document.body.dataset[type]=select.value;try{localStorage.setItem('isolated-tile-theme-'+type,select.value)}catch(e){}});
+  }
+})();
 start();
 </script>
 </body>
